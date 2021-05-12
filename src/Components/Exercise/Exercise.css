@@ -1,0 +1,20 @@
+#exercise{
+    position:relative;
+    width: 100vw;
+    height: calc(100vh - 70px);
+    box-sizing: border-box;    
+    text-align: center;
+}
+#exercise .container{    
+    background-color: #D1F2EB;
+    position:absolute;
+    width: calc(100vw - 100px);
+    height: calc(100vh - 70px);
+    top: 0;
+    left: 100px;
+    padding: 50px;
+    box-sizing: border-box;
+}
+#exercise h1{
+    margin: 0;
+}

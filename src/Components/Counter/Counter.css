@@ -1,0 +1,27 @@
+#counter{
+    margin:0px auto;
+}
+#counter button{
+    height: 50px;
+    min-width: 100px;
+    border: none;
+    color: #fff;
+    background-color: #42a5f5;
+}
+#counter button:hover{
+    font-weight: bold;
+    background-color: #1565c0;
+    box-shadow: inset 1px 1px 30px 1px #0d47a1;
+}
+#counter #reset{
+    height: 30px;
+    min-width: 80px;
+    border: none;
+    color: #fff;
+    background-color: red;
+}
+#counter #reset:hover{
+    font-weight: bold;
+    background-color: #9b0606;
+    box-shadow: inset 1px 1px 30px 1px #520101;
+}
