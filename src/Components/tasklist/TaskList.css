@@ -1,0 +1,28 @@
+#task-list{
+    margin:0px auto;
+    max-width: 90vw;
+}
+#task-list button{
+    height: 35px;
+    min-width: 100px;
+    border: none;
+    color: #fff;
+    background-color: #42a5f5;
+    margin-right: 10px;
+}
+#task-list input{
+    padding: 7px;
+    width: 300px;
+    margin-right: 10px;
+}
+#task-list button:hover{
+    font-weight: bold;
+    background-color: #1565c0;
+    box-shadow: inset 1px 1px 30px 1px #0d47a1;
+}
+#task-list #task-container{
+    margin-top: 20px;
+    max-height: 70vh;
+    max-width: 55   vw;
+    overflow: scroll;
+}

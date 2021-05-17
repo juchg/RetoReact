@@ -1,0 +1,15 @@
+#task{
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    width: 50vw;
+}
+.incompleted{    
+    border: 5px double #850505;
+    background-color: red;
+}
+.completed{    
+    border: 5px double #243d02;
+    background-color: green;
+}

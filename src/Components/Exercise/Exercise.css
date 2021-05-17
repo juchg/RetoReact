@@ -2,8 +2,7 @@
     position:relative;
     width: 100vw;
     height: calc(100vh - 70px);
-    box-sizing: border-box;    
-    text-align: center;
+    box-sizing: border-box; 
 }
 #exercise .container{    
     background-color: #D1F2EB;
@@ -14,6 +13,7 @@
     left: 100px;
     padding: 50px;
     box-sizing: border-box;
+    overflow: hidden;
 }
 #exercise h1{
     margin: 0;

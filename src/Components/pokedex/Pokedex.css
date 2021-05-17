@@ -1,17 +1,18 @@
-#side-bar{
-    background-color: #42a5f5;
-    width: 100px;
-    height: calc(100vh - 70px);
-    box-sizing: border-box;
-}
-#side-bar .btn{
-    height: 70px;
+#pokedex button{
+    height: 35px;
     min-width: 100px;
     border: none;
     color: #fff;
     background-color: #42a5f5;
+    margin-right: 10px;
 }
-#side-bar .btn:hover{
+#pokedex input{
+    padding: 7px;
+    width: 300px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#pokedex button:hover{
     font-weight: bold;
     background-color: #1565c0;
     box-shadow: inset 1px 1px 30px 1px #0d47a1;

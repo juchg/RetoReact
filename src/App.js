@@ -1,13 +1,14 @@
 import React from 'react';
-import './App.css';
-import NavBar from './Components/Nav-bar/Nav-bar';
-import Home from './Components/Home/Home';
-import Exercise from './Components/Exercise/Exercise';
+import NavBar from './components/navbar/NavBar';
+import Home from './components/home/Home';
+import Exercise from './components/exercise/Exercise';
 
 class App extends React.Component {
-
-  state = {
-    page: 1
+  constructor(props){
+    super(props);
+    this.state = {
+      page : 1
+    }
   }
 
   handlePage = (pageRecived) => {
@@ -19,10 +20,11 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <NavBar handlePage={this.handlePage}/>
+        <NavBar handlePage={this.handlePage} />
         {this.state.page===1 
-        ? <Home/> 
-        : <Exercise/> }
+          ? <Home/> 
+          : <Exercise/> 
+        }
       </div>
     )
   }

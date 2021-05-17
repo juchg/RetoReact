@@ -1,5 +1,6 @@
 #counter{
-    margin:0px auto;
+    margin:0px auto;   
+    text-align: center;
 }
 #counter button{
     height: 50px;

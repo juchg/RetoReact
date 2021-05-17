@@ -1,0 +1,18 @@
+#pokemon {
+    width: 30vw;
+    height: 50vh;
+    margin-top: 50px;
+    text-align: center;
+    border: 4px double blue;
+    border-radius: 15px;
+    padding: 50px;
+    box-sizing: border-box;
+}
+#pokemon img{
+    height: 150px;
+    width: auto;
+}
+#pokemon input{
+    width: 15px;
+    margin-right: 50px;
+}

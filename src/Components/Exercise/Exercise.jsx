@@ -1,15 +1,17 @@
 import React from 'react';
 import './Exercise.css';
-import SideBar from '../Side-bar/Side-bar';
-import Counter from '../Counter/Counter';
-import TaskList from '../Task-list/Task-list';
-import tasksExample from '../../Samples/task.json';
+import SideBar from '../sidebar/SideBar';
+import Counter from '../counter/Counter';
+import TaskList from '../tasklist/TaskList';
+import Pokedex from '../pokedex/Pokedex';
 
 class Exercise extends React.Component{
 
-  state = {
-    exercise : 1,
-    task: tasksExample
+  constructor(props){
+    super(props);
+    this.state = {
+      exercise : 1
+    }
   }
 
   handleExercise = (exerciseRecived) => {
@@ -18,15 +20,29 @@ class Exercise extends React.Component{
     });
   }
 
+  renderSwitch(exercise){
+    switch (exercise) {
+      case 1:
+        return <Counter maxValue={18} />
+        break;
+      case 2:
+        return <TaskList/>
+        break;
+      case 3:
+        return <Pokedex/>
+        break;
+      default:
+        return alert("Error al mostrar la ventana");
+        break;
+    }
+  }
+
   render() {
       return (
         <div id="exercise">
           <SideBar handleExercise={this.handleExercise} />          
           <div className="container">
-            {this.state.exercise===1 
-              ? <Counter maxValue={18}/> 
-              : <TaskList tasks={this.state.task}/> 
-            }
+            {this.renderSwitch(this.state.exercise)}
           </div>
         </div>
       )

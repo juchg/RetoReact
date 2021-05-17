@@ -21,6 +21,7 @@ class Counter extends React.Component {
       }));
     }
   }
+
   handleReset() {
     this.setState({ count: 0 });
   }
@@ -32,7 +33,10 @@ class Counter extends React.Component {
         <h2>{this.state.count}</h2>
         <button onClick={this.handleClick}>Click here</button>
         {this.state.count === this.props.maxValue
-          ? <span><br />You reach the limit<br /><button id="reset" onClick={this.handleReset}>Reset</button></span>
+          ? <span>
+              <br/>You reach the limit<br/>
+              <button id="reset" onClick={this.handleReset}>Reset</button>
+            </span>
           : null
         }
         <p>The max value is {this.props.maxValue}</p>
