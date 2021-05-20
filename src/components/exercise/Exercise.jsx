@@ -1,7 +1,7 @@
 import React from 'react';
 import './Exercise.css';
 import SideBar from '../sidebar/SideBar';
-import Counter from '../counterComp/Counter';
+import Counter from '../counter/Counter';
 import TaskList from '../tasklist/TaskList';
 import Pokedex from '../pokedex/Pokedex';
 
