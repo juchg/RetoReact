@@ -11,11 +11,12 @@ class Pokemon extends React.Component {
             backNormal: props.data.sprites.back_default,
             frontShiny: props.data.sprites.front_shiny,
             backShiny: props.data.sprites.back_shiny,
+            shiny: false
         }
     }
 
     render() {
-        const { found, shiny, front } = this.state;
+        const {shiny, front } = this.state;
         return (
             <div id="pokemon">
                 <h1>{this.state.name}</h1>

@@ -2,6 +2,7 @@ import React from 'react';
 import './Pokedex.css';
 import Alertify from 'alertifyjs';
 import Pokemon from '../pokemon/Pokemon';
+import Loading from '../loading/Loading';
 const POKEMON_API = "https://pokeapi.co/api/v2/pokemon/";
 
 class Pokedex extends React.Component {
@@ -10,7 +11,8 @@ class Pokedex extends React.Component {
         this.state = {
             pokemon: '',
             found: false,
-            data: []
+            data: [],
+            loading: false
         }
         this.handlePokemonChanged = this.handlePokemonChanged.bind(this);
     }
@@ -20,16 +22,26 @@ class Pokedex extends React.Component {
     }
 
     async handleSearch() {
-        try {
-            const res = await fetch(POKEMON_API + this.state.pokemon);
-            const data = await res.json();
-            this.setState({
-                data: data,
-                found: true
-            });
+        this.setState({loading:true});
+        if(this.state.pokemon!==''){
+            try {
+                const res = await fetch(POKEMON_API + this.state.pokemon).then(r=>{this.setState({found:false});return r;});
+                const data = await res.json();
+                this.setState({
+                    data: data,
+                    found: true
+                });
+                this.setState({loading:false});
+            }
+            catch (e) {
+                Alertify.alert("Pokemon no encontrado");          
+                this.setState({ pokemon: '' });
+                this.setState({loading:false});
+            }
         }
-        catch (e) {
-            Alertify.alert("Pokemon no encontrado");
+        else{
+            Alertify.alert("Campo vacio, ingrese su busqueda");  
+            this.setState({loading:false});
         }
     }
 
@@ -38,6 +50,7 @@ class Pokedex extends React.Component {
         return (
             <div id="pokedex">
                 <h1>Pokedex</h1>
+                {(this.state.loading) ? <Loading/> : null}
                 <br />
                 <label htmlFor="name-number">Ingrese el nombre o el numero de pokemon</label>
                 <input id="name-number" type="text" value={this.state.pokemon} onChange={this.handlePokemonChanged} />

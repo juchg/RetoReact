@@ -7,7 +7,6 @@ import 'alertifyjs/build/css/alertify.css';
 const TaskList = () => {
   const [task, setTask] = useState('');
   const [items, setItems] = useState([]);
-  const changeFlag = false;
 
   const handleTaskChanged = (e) => {
     setTask(e.target.value);
