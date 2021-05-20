@@ -4,10 +4,10 @@ import Home from './components/home/Home';
 import Exercise from './components/exercise/Exercise';
 
 class App extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      page : 1
+      page: 1
     }
   }
 
@@ -21,9 +21,9 @@ class App extends React.Component {
     return (
       <div className="App">
         <NavBar handlePage={this.handlePage} />
-        {this.state.page===1 
-          ? <Home/> 
-          : <Exercise/> 
+        {this.state.page === 1
+          ? <Home />
+          : <Exercise />
         }
       </div>
     )
