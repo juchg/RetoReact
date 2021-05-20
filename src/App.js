@@ -1,7 +1,7 @@
 import React from 'react';
-import NavBar from './components/navbar/NavBar';
-import Home from './components/home/Home';
-import Exercise from './components/exercise/Exercise';
+import NavBar from './componentsReact/navbar/NavBar';
+import Home from './componentsReact/homeComp/Home';
+import Exercise from './componentsReact/exerciseComp/Exercise';
 
 class App extends React.Component {
   constructor(props) {
