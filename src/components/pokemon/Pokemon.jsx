@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Pokemon.css';
 
 class Pokemon extends React.Component {
@@ -21,32 +22,40 @@ class Pokemon extends React.Component {
             <div id="pokemon">
                 <h1>{this.state.name}</h1>
                 <br />
-                {(shiny)
+                {shiny
                     ?
-                    <div>
-                        {(front)
-                            ?
-                            <img src={this.state.frontShiny} alt="Esperando la busqueda" />
-                            :
-                            <img src={this.state.backShiny} alt="Esperando la busqueda" />
-                        }
-                    </div>
-                    :
-                    <div>
-                        {(front)
-                            ?
-                            <img src={this.state.frontNormal} alt="Esperando la busqueda" />
-                            :
-                            <img src={this.state.backNormal} alt="Esperando la busqueda" />
-                        }
-                    </div>
+                    (
+                        <div>
+                            {front
+                                ?
+                                <img src={this.state.frontShiny} alt="Esperando la busqueda" />
+                                :
+                                <img src={this.state.backShiny} alt="Esperando la busqueda" />
+                            }
+                        </div>
+                    ):(
+                        <div>
+                            {front
+                                ?
+                                <img src={this.state.frontNormal} alt="Esperando la busqueda" />
+                                :
+                                <img src={this.state.backNormal} alt="Esperando la busqueda" />
+                            }
+                        </div>
+                    )
                 }
-                <label htmlFor="shiny-check">Shiny</label><input type="checkbox" name="" id="shiny-check" onChange={(e) => this.setState({shiny:e.target.checked})} />
-                <label htmlFor="back-check">Back</label><input type="checkbox" name="" id="back-check" onChange={(e) => this.setState({front:!e.target.checked})} />
+                <label htmlFor="shiny-check">Shiny</label>
+                <input type="checkbox" name="" id="shiny-check" onChange={(e) => this.setState({shiny:e.target.checked})} />
+                <label htmlFor="back-check">Back</label>
+                <input type="checkbox" name="" id="back-check" onChange={(e) => this.setState({front:!e.target.checked})} />
                      
             </div>
         )
     }
+}
+
+Pokemon.propType = {
+  data : PropTypes.object.isRequired   
 }
 
 export default Pokemon;

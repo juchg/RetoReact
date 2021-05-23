@@ -1,9 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './NavBar.css'
 import logo from '../../assets/Logo.png';
 
 class NavBar extends React.Component{
-
     ChangePage(page){    
         //marcamos el seleccionado
         if(page===1){
@@ -31,6 +31,10 @@ class NavBar extends React.Component{
             </div>
         )
     }
+}
+
+NavBar.propType = {
+    handlePage : PropTypes.func.isRequired    
 }
 
 export default NavBar;

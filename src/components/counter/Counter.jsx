@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Counter.css'
 
 class Counter extends React.Component {
@@ -43,6 +44,10 @@ class Counter extends React.Component {
       </div>
     )
   }
+}
+
+Counter.propType = {
+  maxValue : PropTypes.number.isRequired   
 }
 
 export default Counter;

@@ -3,7 +3,7 @@ import './Pokedex.css';
 import Alertify from 'alertifyjs';
 import Pokemon from '../pokemon/Pokemon';
 import Loading from '../loading/Loading';
-const POKEMON_API = "https://pokeapi.co/api/v2/pokemon/";
+import {PokemonApiGet} from '../../service/utils/PokemonApi';
 
 class Pokedex extends React.Component {
     constructor(props) {
@@ -22,21 +22,26 @@ class Pokedex extends React.Component {
     }
 
     async handleSearch() {
-        this.setState({loading:true});
+        this.setState({
+            loading:true, 
+            found:false
+        });
         if(this.state.pokemon!==''){
             try {
-                const res = await fetch(POKEMON_API + this.state.pokemon).then(r=>{this.setState({found:false});return r;});
-                const data = await res.json();
+                const res = await PokemonApiGet(this.state.pokemon);
+                const data = await res;
                 this.setState({
-                    data: data,
+                    data: data.result,
                     found: true
                 });
                 this.setState({loading:false});
             }
             catch (e) {
-                Alertify.alert("Pokemon no encontrado");          
-                this.setState({ pokemon: '' });
-                this.setState({loading:false});
+                Alertify.alert('Pokemon no encontrado');          
+                this.setState({ 
+                    pokemon: '',
+                    loading:false
+                });
             }
         }
         else{
@@ -56,11 +61,13 @@ class Pokedex extends React.Component {
                 <input id="name-number" type="text" value={this.state.pokemon} onChange={this.handlePokemonChanged} />
                 <button className="btn" type="button" onClick={() => this.handleSearch()} >Buscar</button>
                 {
-                    (found)
+                    found
                         ?
-                        <div>
-                            <Pokemon data = {this.state.data} />
-                        </div>
+                        (
+                            <div>
+                                <Pokemon data = {this.state.data} />
+                            </div>
+                        )
                         :
                         null
                 }

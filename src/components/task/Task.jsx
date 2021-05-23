@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './Task.css';
 
 class Task extends React.Component{
@@ -34,6 +35,13 @@ class Task extends React.Component{
             </div>
         )
     }
+}
+
+Task.propType = {
+    handleDeleteTask : PropTypes.func.isRequired,
+    handleEditTask : PropTypes.func.isRequired,
+    index : PropTypes.number.isRequired,
+    task : PropTypes.string.isRequired       
 }
 
 export default Task;

@@ -1,10 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './SideBar.css'
+import Alertify from 'alertifyjs';
 
 
 class SideBar extends React.Component{
-
-
   ChangeExercise(exercise){   
     //marcamos el seleccionado
     switch (exercise) {
@@ -23,6 +23,9 @@ class SideBar extends React.Component{
         document.getElementById("task-list-tab").className="btn";
         document.getElementById("pokemon-tab").className="btn-selected";        
         break;
+      default:
+        Alertify.alert("Problema al marcar la ventana");
+        break;
     }
     const { handleExercise } = this.props;
     handleExercise(exercise);
@@ -39,6 +42,10 @@ class SideBar extends React.Component{
       </div>
     )
   }
+}
+
+SideBar.propType = {
+  handleExercise : PropTypes.func.isRequired    
 }
 
 export default SideBar;

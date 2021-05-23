@@ -5,12 +5,12 @@ import Counter from '../counter/Counter';
 import TaskList from '../tasklist/TaskList';
 import Pokedex from '../pokedex/Pokedex';
 
-class Exercise extends React.Component{
+class Exercise extends React.Component {
 
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      exercise : 1
+      exercise: 1
     }
   }
 
@@ -20,32 +20,28 @@ class Exercise extends React.Component{
     });
   }
 
-  renderSwitch(exercise){
+  renderSwitch(exercise) {
     switch (exercise) {
       case 1:
-        return <Counter maxValue={18} />
-        break;
+        return <Counter maxValue={18} />;
       case 2:
-        return <TaskList/>
-        break;
+        return <TaskList />;
       case 3:
-        return <Pokedex/>
-        break;
+        return <Pokedex />;
       default:
         return alert("Error al mostrar la ventana");
-        break;
     }
   }
 
   render() {
-      return (
-        <div id="exercise">
-          <SideBar handleExercise={this.handleExercise} />          
-          <div className="container">
-            {this.renderSwitch(this.state.exercise)}
-          </div>
+    return (
+      <div id="exercise">
+        <SideBar handleExercise={this.handleExercise} />
+        <div className="container">
+          {this.renderSwitch(this.state.exercise)}
         </div>
-      )
+      </div>
+    )
   }
 }
 
